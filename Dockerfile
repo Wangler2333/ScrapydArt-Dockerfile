@@ -5,6 +5,8 @@
 FROM debian:stretch
 MAINTAINER kev <noreply@easypi.pro>
 
+COPY ./ScrapydArt /ScrapydArt
+WORKDIR /ScrapydArt
 RUN set -xe \
     && apt-get update \
     && apt-get install -y autoconf \
@@ -33,7 +35,7 @@ RUN set -xe \
                           zlib1g \
                           zlib1g-dev \
     && curl -sSL https://bootstrap.pypa.io/get-pip.py | python3 \
-    && pip install scrapydart \
+    && python3 setup.py install \
     && apt-get purge -y --auto-remove autoconf \
                                       build-essential \
                                       libffi-dev \
