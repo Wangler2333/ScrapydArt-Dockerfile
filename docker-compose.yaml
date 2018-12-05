@@ -1,0 +1,17 @@
+#scrapyd:
+#  image: vimagick/scrapyd:py3
+#  ports:
+#    - "6800:6800"
+#  volumes:
+#    - ./data:/var/lib/scrapyd
+##    - /usr/local/lib/python3.5/dist-packages
+#  restart: always
+
+scrapydart:
+  image: scrapydart
+  ports:
+    - "6800:6800"
+  volumes:
+    - ./data:/dbs
+#    - /usr/local/lib/python3.5/dist-packages
+  restart: always
